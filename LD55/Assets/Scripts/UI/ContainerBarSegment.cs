@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthChunk : MonoBehaviour
+public class ContainerBarSegment : MonoBehaviour
 {
     [SerializeField] private Sprite fullHealthSprite;
     [SerializeField] private Sprite emptyHealthSprite;

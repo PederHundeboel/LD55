@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public abstract class Container : MonoBehaviour
 {
@@ -7,7 +8,8 @@ public abstract class Container : MonoBehaviour
     public const int MIN = 0;
 
     [SerializeField] protected UnityEvent onEmpty = new UnityEvent();
-    [SerializeField] protected UnityEvent onChange = new UnityEvent();
+    [FormerlySerializedAs("onChange")] [SerializeField] protected UnityEvent onValueChange = new UnityEvent();
+    [SerializeField] protected UnityEvent onMaxChange = new UnityEvent();
     [SerializeField] protected UnityEvent onFull = new UnityEvent();
     [SerializeField] protected UnityEvent onDecrease = new UnityEvent();
     [SerializeField] protected UnityEvent onIncrease = new UnityEvent();
@@ -22,7 +24,8 @@ public abstract class Container : MonoBehaviour
 
     private void OnValidate()
     {
-        onChange.Invoke();
+        onMaxChange.Invoke();
+        onValueChange.Invoke();
     }
 
     public int GetValue()
@@ -43,7 +46,7 @@ public abstract class Container : MonoBehaviour
         if (oldValue != this.value)
         {
             onIncrease.Invoke();
-            onChange.Invoke();
+            onValueChange.Invoke();
         }
 
         if (this.value == this.maxValue)
@@ -60,7 +63,7 @@ public abstract class Container : MonoBehaviour
         if (oldValue != this.value)
         {
             onDecrease.Invoke();
-            onChange.Invoke();
+            onValueChange.Invoke();
         }
 
         if (value <= MIN)
@@ -79,12 +82,12 @@ public abstract class Container : MonoBehaviour
         if (this.value > newMaxValue)
         {
             this.value = newMaxValue;
-            onChange.Invoke();
+            onMaxChange.Invoke();
         }
 
         if (oldMaxValue != newMaxValue)
         {
-            onChange.Invoke();
+            onMaxChange.Invoke();
         }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f6edb783082edb94d8effb65b4680973
+guid: 514ffffb4eb0b1c4b9d03f7476dd2418
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 32
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -76,7 +76,7 @@ ScriptedImporter:
     layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
-    customPivotPosition: {x: 0.5, y: 0.5}
+    customPivotPosition: {x: 0.5, y: 0.75}
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
@@ -89,7 +89,7 @@ ScriptedImporter:
     layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
-    customPivotPosition: {x: 0.5, y: 0.5}
+    customPivotPosition: {x: 0.5, y: 0.75}
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638486405122055804
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: water3_Frame_0
+  - name: water_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 21
-    spriteID: 130166af45fd05244b08488100c4b655
+    spriteID: b2095f7f110e1e84181b8432898d0da4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: water3_Frame_1
+  - name: water_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 33
       width: 32
       height: 21
-    spriteID: db4a5e0ca614fbc4883ad7e06c637b1c
+    spriteID: af6a8cb3e0d48894882cff746b2de274
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 33}
-  - name: water3_Frame_2
+  - name: water_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 62
       width: 32
       height: 21
-    spriteID: 491d440d9556ea843aa24b5e5e067ffa
+    spriteID: 0b2fd6fc413cf6c4cad536676fcf45b5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -184,39 +184,75 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -29541642
-    name: water3
+    guid: -1960105723
+    name: water
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: water3_Frame_0
+    - name: water_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 21
-      spriteId: 130166af45fd05244b08488100c4b655
-    - name: water3_Frame_1
+      spriteId: b2095f7f110e1e84181b8432898d0da4
+    - name: water_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 21
-      spriteId: db4a5e0ca614fbc4883ad7e06c637b1c
-    - name: water3_Frame_2
+      spriteId: af6a8cb3e0d48894882cff746b2de274
+    - name: water_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 21
-      spriteId: 491d440d9556ea843aa24b5e5e067ffa
+      spriteId: 0b2fd6fc413cf6c4cad536676fcf45b5
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 

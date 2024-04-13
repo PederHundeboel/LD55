@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(HealthContainer))]
@@ -11,6 +12,9 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidbody;
 
     private Animator _animator;
+
+    [SerializeField]
+    private Orbs _orbsContainer;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,11 @@ public class Player : MonoBehaviour
             _animator.SetFloat("Speed", input.magnitude);
             _animator.SetFloat("MovementX", input.x);
             _animator.SetFloat("MovementY", input.y);
+        }
+        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            _orbsContainer.Add(1);
         }
     }
 

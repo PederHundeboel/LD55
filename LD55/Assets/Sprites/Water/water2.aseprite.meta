@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 514ffffb4eb0b1c4b9d03f7476dd2418
+guid: 029b01b1ece816240b5d85c1a2ed5e04
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 32
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -75,8 +75,8 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
-    customPivotPosition: {x: 0.5, y: 0.5}
+    defaultPivotAlignment: 9
+    customPivotPosition: {x: 0.5, y: 0.75}
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
@@ -88,8 +88,8 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
-    customPivotPosition: {x: 0.5, y: 0.5}
+    defaultPivotAlignment: 9
+    customPivotPosition: {x: 0.5, y: 0.75}
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638486405542084650
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,9 +121,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: water_Frame_0
+  - name: water2_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 1.1428572}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 21
-    spriteID: b2095f7f110e1e84181b8432898d0da4
+    spriteID: dab76b1246076e044b6e750c5dd98260
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,9 +141,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: water_Frame_1
+  - name: water2_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 1.1428572}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 33
       width: 32
       height: 21
-    spriteID: af6a8cb3e0d48894882cff746b2de274
+    spriteID: a1653ad00ddadc947bccb9c00f8c4259
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,9 +161,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 33}
-  - name: water_Frame_2
+  - name: water2_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 1.1428572}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 62
       width: 32
       height: 21
-    spriteID: 0b2fd6fc413cf6c4cad536676fcf45b5
+    spriteID: d6f6da34c2f5e6f4e85d1c9b2540586d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -184,39 +184,75 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1960105723
-    name: water
+    guid: -1064474985
+    name: water2
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: water_Frame_0
+    - name: water2_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 21
-      spriteId: b2095f7f110e1e84181b8432898d0da4
-    - name: water_Frame_1
+      spriteId: dab76b1246076e044b6e750c5dd98260
+    - name: water2_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 21
-      spriteId: af6a8cb3e0d48894882cff746b2de274
-    - name: water_Frame_2
+      spriteId: a1653ad00ddadc947bccb9c00f8c4259
+    - name: water2_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
         width: 32
         height: 21
-      spriteId: 0b2fd6fc413cf6c4cad536676fcf45b5
+      spriteId: d6f6da34c2f5e6f4e85d1c9b2540586d
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 

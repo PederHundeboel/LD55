@@ -24,7 +24,7 @@ public class Orbs : Container
             CreateOrb();
         }
 
-        onChange.AddListener(UpdateOrbs);
+        onValueChange.AddListener(UpdateOrbs);
 
     }
 
