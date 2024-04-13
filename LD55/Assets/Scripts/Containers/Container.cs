@@ -6,11 +6,11 @@ public abstract class Container : MonoBehaviour
     [SerializeField] protected int maxValue, value;
     public const int MIN = 0;
 
-    [SerializeField] private UnityEvent onEmpty = new UnityEvent();
-    [SerializeField] private UnityEvent onChange = new UnityEvent();
-    [SerializeField] private UnityEvent onFull = new UnityEvent();
-    [SerializeField] private UnityEvent onDecrease = new UnityEvent();
-    [SerializeField] private UnityEvent onIncrease = new UnityEvent();
+    [SerializeField] protected UnityEvent onEmpty = new UnityEvent();
+    [SerializeField] protected UnityEvent onChange = new UnityEvent();
+    [SerializeField] protected UnityEvent onFull = new UnityEvent();
+    [SerializeField] protected UnityEvent onDecrease = new UnityEvent();
+    [SerializeField] protected UnityEvent onIncrease = new UnityEvent();
 
     protected virtual void Awake()
     {
