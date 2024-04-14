@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 6977333136136747399}
   - component: {fileID: 6367808985549105817}
   - component: {fileID: 475910301826152112}
+  - component: {fileID: 6187790974131299144}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -312,6 +313,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6187790974131299144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778467862832960008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.14788403, y: -0.4857921, z: 0}
+  - {x: -0.24424876, y: -0.36729136, z: 0}
+  - {x: -0.14421111, y: -0.29653847, z: 0}
+  - {x: -0.005509369, y: -0.30485183, z: 0}
+  - {x: 0.1001361, y: -0.38468832, z: 0}
+  - {x: 0.023004964, y: -0.47844622, z: 0}
+  m_ShapePathHash: -1117671417
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -286138
+  m_LocalBounds:
+    m_Center: {x: -0.07205634, y: -0.3911653, z: 0}
+    m_Extent: {x: 0.17219242, y: 0.094626814, z: 0}
 --- !u!1 &7881645279151960890
 GameObject:
   m_ObjectHideFlags: 0
