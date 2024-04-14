@@ -1,13 +1,8 @@
 fileFormatVersion: 2
-guid: f25251fa023a28841b1a2c9e0c9f1d16
+guid: c124351db9c1ad340833f1bd7fec831f
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:AnimationClip
-      assembly: UnityEngine.AnimationModule
-      name: OrkAbilityIndicator_Clip
-    second: {fileID: 7400000, guid: 827bf9733eada374f8f5c8bd47902ab2, type: 2}
+  externalObjects: {}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -40,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 32
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -102,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638486912631087935
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -126,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: OrkAbilityIndicator_Frame_0
+  - name: Spell_Frame_0
     originalName: 
-    pivot: {x: 0, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5, y: -2.352941}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 42
-      y: 46
-      width: 14
-      height: 16
-    spriteID: 7d5fed339739d9c44b34f1ff3fd19601
+      x: 36
+      y: 4
+      width: 6
+      height: 34
+    spriteID: dfe473d63d7b7454989a070a31ac7b4b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,19 +140,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 42, y: 46}
-  - name: OrkAbilityIndicator_Frame_1
+    uvTransform: {x: 36, y: 4}
+  - name: Spell_Frame_1
     originalName: 
-    pivot: {x: 0, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5, y: -1.7}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 86
-      width: 24
-      height: 26
-    spriteID: 789eef78b3ab653458e238d1bf31abbe
+      x: 20
+      y: 4
+      width: 8
+      height: 40
+    spriteID: 802b7d237e8c63044a95b05217230445
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -165,39 +160,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 86}
-  - name: OrkAbilityIndicator_Frame_2
+    uvTransform: {x: 20, y: 4}
+  - name: Spell_Frame_2
     originalName: 
-    pivot: {x: 0, y: 0.5}
-    alignment: 4
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 46
-      width: 30
-      height: 32
-    spriteID: aa2dbc9e3cd30274baee91ed933d783b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 46}
-  - name: OrkAbilityIndicator_Frame_3
-    originalName: 
-    pivot: {x: 0, y: 0.5}
-    alignment: 4
+    pivot: {x: 0.5, y: -0.95454544}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 35
-      height: 34
-    spriteID: 7929cfb7141991243a2db22b91a6b56f
+      width: 8
+      height: 44
+    spriteID: 834cba845a0aaeb4bb2724624abffe12
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -209,72 +184,40 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -365560867
-    name: OrkAbilityIndicator
+    guid: 434342156
+    name: Spell
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: OrkAbilityIndicator_Frame_0
-      frameIndex: 0
-      cellRect:
-        x: 0
-        y: 10
-        width: 14
-        height: 16
-      spriteId: 7d5fed339739d9c44b34f1ff3fd19601
-    - name: OrkAbilityIndicator_Frame_1
+    - name: Spell_Frame_1
       frameIndex: 1
       cellRect:
-        x: 0
-        y: 5
-        width: 24
-        height: 26
-      spriteId: 789eef78b3ab653458e238d1bf31abbe
-    - name: OrkAbilityIndicator_Frame_2
+        x: 29
+        y: 80
+        width: 6
+        height: 34
+      spriteId: dfe473d63d7b7454989a070a31ac7b4b
+    - name: Spell_Frame_2
       frameIndex: 2
       cellRect:
-        x: 0
-        y: 2
-        width: 30
-        height: 32
-      spriteId: aa2dbc9e3cd30274baee91ed933d783b
-    - name: OrkAbilityIndicator_Frame_3
+        x: 28
+        y: 68
+        width: 8
+        height: 40
+      spriteId: 802b7d237e8c63044a95b05217230445
+    - name: Spell_Frame_3
       frameIndex: 3
       cellRect:
-        x: 0
-        y: 1
-        width: 35
-        height: 34
-      spriteId: 7929cfb7141991243a2db22b91a6b56f
+        x: 28
+        y: 42
+        width: 8
+        height: 44
+      spriteId: 834cba845a0aaeb4bb2724624abffe12
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 48, y: 38}
+  canvasSize: {x: 64, y: 180}
