@@ -47,15 +47,8 @@ public class OrkController : MonoBehaviour
         {
             StartCharge();
         }
+        isCharging = false;
 
-        else if (IsTimeToAttack())
-        {
-            PerformAttack();
-        }
-        else
-        {
-            isCharging = false;
-        }
     }
 
     private bool ShouldMoveTowardsTarget()
@@ -78,11 +71,6 @@ public class OrkController : MonoBehaviour
     private bool ShouldStartCharge()
     {
         return !isCharging && Time.time >= nextChargeTime;
-    }
-
-    private bool IsTimeToAttack()
-    {
-        return isCharging && Time.time > nextChargeTime;
     }
 
     private void UpdateIdleState()
@@ -118,15 +106,6 @@ public class OrkController : MonoBehaviour
         Instantiate(attackIndicatorPrefab, transform.position, Quaternion.identity, transform);
         animator.SetTrigger("charge");
         nextChargeTime = Time.time + chargeCooldown;
-    }
-
-    private void PerformAttack()
-    {
-        if (Time.time - chargeStartTime >= chargeTime)
-        {
-            isCharging = false;
-            animator.SetBool("charge", false);
-        }
     }
 
 

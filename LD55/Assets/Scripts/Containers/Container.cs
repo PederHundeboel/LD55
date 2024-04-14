@@ -8,7 +8,7 @@ public abstract class Container : MonoBehaviour
     public const int MIN = 0;
 
     [SerializeField] protected UnityEvent onEmpty = new UnityEvent();
-    [FormerlySerializedAs("onChange")] [SerializeField] protected UnityEvent onValueChange = new UnityEvent();
+    [FormerlySerializedAs("onChange")][SerializeField] protected UnityEvent onValueChange = new UnityEvent();
     [SerializeField] protected UnityEvent onMaxChange = new UnityEvent();
     [SerializeField] protected UnityEvent onFull = new UnityEvent();
     [SerializeField] protected UnityEvent onDecrease = new UnityEvent();
