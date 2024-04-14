@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638486261680274205
+  platformSettingsDirtyTick: 638486859885713506
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,8 +123,8 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Ork_Frame_0
     originalName: 
-    pivot: {x: 0.29411763, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -143,8 +143,8 @@ ScriptedImporter:
     uvTransform: {x: 57, y: 40}
   - name: Ork_Frame_1
     originalName: 
-    pivot: {x: 0.2857143, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -163,7 +163,7 @@ ScriptedImporter:
     uvTransform: {x: 90, y: 4}
   - name: Ork_Frame_2
     originalName: 
-    pivot: {x: 0.23529415, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -183,8 +183,8 @@ ScriptedImporter:
     uvTransform: {x: 82, y: 40}
   - name: Ork_Frame_3
     originalName: 
-    pivot: {x: 0.27777776, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -203,7 +203,7 @@ ScriptedImporter:
     uvTransform: {x: 31, y: 40}
   - name: Ork_Frame_4
     originalName: 
-    pivot: {x: 0.23529415, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -223,7 +223,7 @@ ScriptedImporter:
     uvTransform: {x: 107, y: 40}
   - name: Ork_Frame_5
     originalName: 
-    pivot: {x: 0.29411763, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -243,7 +243,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 76}
   - name: Ork_Frame_6
     originalName: 
-    pivot: {x: 0.3529412, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -263,7 +263,7 @@ ScriptedImporter:
     uvTransform: {x: 29, y: 76}
   - name: Ork_Frame_7
     originalName: 
-    pivot: {x: 0.3529412, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -283,7 +283,7 @@ ScriptedImporter:
     uvTransform: {x: 54, y: 76}
   - name: Ork_Frame_8
     originalName: 
-    pivot: {x: 0.41176474, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -303,7 +303,7 @@ ScriptedImporter:
     uvTransform: {x: 79, y: 76}
   - name: Ork_Frame_9
     originalName: 
-    pivot: {x: 0.36842108, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -323,7 +323,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 40}
   - name: Ork_Frame_10
     originalName: 
-    pivot: {x: 0.5217391, y: 0}
+    pivot: {x: 0.60630274, y: -0.00000019584384}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -343,7 +343,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Ork_Frame_11
     originalName: 
-    pivot: {x: 0.08333331, y: 0}
+    pivot: {x: 0.27252674, y: -0.00000019584384}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
