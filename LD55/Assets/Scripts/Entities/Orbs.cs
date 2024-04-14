@@ -84,6 +84,11 @@ public class Orbs : Container
             _activeOrbCooldowns[orb] = 1;
         }
     }
+    
+    public bool HasPassiveOrb()
+    {
+        return _orbs.Any(o => _activeOrbCooldowns[o] <= 0);
+    }
 
     // Update is called once per frame
     void Update()

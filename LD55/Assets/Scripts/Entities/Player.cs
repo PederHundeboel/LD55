@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private Orbs _orbsContainer;
+    [SerializeField]
+    private SpellResources _spellResources;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,33 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             _orbsContainer.Add(1);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            _spellResources.EnhanceType(SpellResources.SpellType.Utility);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _spellResources.EnhanceType(SpellResources.SpellType.Offensive);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            _spellResources.EnhanceType(SpellResources.SpellType.Defensive);
+        }
+        
+        //use q e, r to cast spells
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _spellResources.CastSpell(SpellResources.SpellType.Utility);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            _spellResources.CastSpell(SpellResources.SpellType.Offensive);
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            _spellResources.CastSpell(SpellResources.SpellType.Defensive);
         }
     }
 

@@ -40,11 +40,6 @@ public class ContainerBar : MonoBehaviour
         _chunksPerUnit = _container.GetMax() / segment.Count;
     }
 
-    private void OnEnable()
-    {
-        SetBar();
-    }
-
     public void UpdateBar()
     {
         int value = _container.GetValue();
