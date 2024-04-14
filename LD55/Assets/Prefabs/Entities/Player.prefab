@@ -51,10 +51,34 @@ MonoBehaviour:
       m_Calls: []
   onValueChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
+        m_MethodName: UpdateBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onMaxChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
+        m_MethodName: SetBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFull:
     m_PersistentCalls:
       m_Calls: []
@@ -159,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75a260d4473a1b4b8207a1d275cbe1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxValue: 0
-  value: 0
+  maxValue: 4
+  value: 4
   onEmpty:
     m_PersistentCalls:
       m_Calls: []
@@ -168,8 +192,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Healthbar, Assembly-CSharp
-        m_MethodName: UpdateHealth
+        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
+        m_MethodName: UpdateBar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -181,7 +205,19 @@ MonoBehaviour:
         m_CallState: 2
   onMaxChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
+        m_MethodName: SetBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFull:
     m_PersistentCalls:
       m_Calls: []
@@ -239,8 +275,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011644423, y: -0.058222115}
-  m_Size: {x: 0.32145214, y: 0.88355577}
+  m_Offset: {x: 0, y: -0.34}
+  m_Size: {x: 0.28, y: 0.07}
   m_Direction: 0
 --- !u!1 &3778467862832960008
 GameObject:
@@ -377,7 +413,7 @@ MonoBehaviour:
   - {x: 0.023004964, y: -0.47844622, z: 0}
   m_ShapePathHash: -1117671417
   m_Mesh: {fileID: 0}
-  m_InstanceId: 54460
+  m_InstanceId: 60450
   m_LocalBounds:
     m_Center: {x: -0.07205634, y: -0.3911653, z: 0}
     m_Extent: {x: 0.17219242, y: 0.094626814, z: 0}
@@ -432,10 +468,34 @@ MonoBehaviour:
       m_Calls: []
   onValueChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
+        m_MethodName: UpdateBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onMaxChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
+        m_MethodName: SetBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFull:
     m_PersistentCalls:
       m_Calls: []
@@ -496,10 +556,34 @@ MonoBehaviour:
       m_Calls: []
   onValueChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
+        m_MethodName: UpdateBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onMaxChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
+        m_MethodName: SetBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onFull:
     m_PersistentCalls:
       m_Calls: []
