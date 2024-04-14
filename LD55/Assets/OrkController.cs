@@ -108,6 +108,10 @@ public class OrkController : MonoBehaviour
         nextChargeTime = Time.time + chargeCooldown;
     }
 
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 
     private void HandleAnimationDirection(float horizontalMovement)
     {

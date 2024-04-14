@@ -16,6 +16,7 @@ public class SpellCast : MonoBehaviour
     public Vector2 boxOffset = Vector2.zero;
     private float windUpTime = 1.42f;
 
+    private Dictionary<SpellResources.SpellType, int> values;
     public void Start()
     {
         _animator.SetTrigger(CastSpell);
@@ -37,6 +38,11 @@ public class SpellCast : MonoBehaviour
         }
     }
     
+    public void SetDamageCombination(Dictionary<SpellResources.SpellType, int> damageValues)
+    {
+        values = damageValues;
+    }
+    
     private void CheckCollisions()
     {
         Vector2 boxCenter = (Vector2)transform.position + boxOffset;
@@ -47,10 +53,11 @@ public class SpellCast : MonoBehaviour
 
         foreach (Collider2D hitCollider in hitColliders)
         {
-            //TODO check for boss
-            if (false)
+            if (hitCollider.GetComponent<OrkBoss>())
             {
-                
+                OrkBoss boss = hitCollider.GetComponent<OrkBoss>();
+                boss.HitWithSpell(values);
+                return;
             }
             if (hitCollider.GetComponent<OrkController>())
             {

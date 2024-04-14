@@ -30,8 +30,8 @@ public class SpellResources : MonoBehaviour
             //cast spell by instantiating a spell prefab at mouse position. keep z at 0
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
-            Instantiate(SpellCast, mousePos, Quaternion.identity);
-            
+            var cast = Instantiate(SpellCast, mousePos, Quaternion.identity);
+            cast.SetDamageCombination(consumed);
 
         }
         
