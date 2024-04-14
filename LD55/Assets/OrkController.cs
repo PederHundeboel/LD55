@@ -3,63 +3,92 @@ using UnityEngine;
 public class OrkController : MonoBehaviour
 {
     [SerializeField] private float chargeTime = 2.0f;
-    [SerializeField] private float attackRange = 5.0f;
     [SerializeField] private GameObject attackIndicatorPrefab;
     [SerializeField] private Animator animator;
     [SerializeField] private Transform target;
     [SerializeField] private float closeEnoughRange = 1.0f;
+    [SerializeField] private float yLevelThreshold = 0.1f;
+    [SerializeField] private float idleMoveSpeed = 2.0f;
+    [SerializeField] private float idleMoveFrequency = 3.0f;
+    [SerializeField] private float chargeCooldown = 5.0f;
+    [SerializeField] private Vector3 targetOffset = new Vector3(0, -0.5f, 0);
+    private Vector3 adjustedTargetPosition;
+
 
     private bool isCharging = false;
     private float chargeStartTime;
-    private Vector3 attackDirection;
-
-    [SerializeField] private float idleMoveSpeed = 2.0f;
-    [SerializeField] private float idleMoveFrequency = 3.0f;
-    private float idleMoveTimer = 0;
-    private Vector3 idleDirection = Vector3.zero;
-
-    [SerializeField] private float chargeCooldown = 5.0f;
     private float nextChargeTime = 0f;
-
+    private float idleMoveTimer = 0;
     private Vector3 lastPosition;
-    private float movementThreshold = 0.01f;
-
+    private const float movementThreshold = 0.01f;
 
     void FixedUpdate()
     {
         if (target != null)
         {
-            MoveTowardsTarget();
+            ProcessTargetInteraction();
         }
         else
         {
-            RandomIdleMovement();
+            ExecuteIdleBehavior();
         }
     }
 
-    void MoveTowardsTarget()
+    private void ProcessTargetInteraction()
     {
-        IdleChecker();
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        if (distanceToTarget > closeEnoughRange)
+        adjustedTargetPosition = target.position + targetOffset;
+        UpdateIdleState();
+
+        if (ShouldMoveTowardsTarget())
         {
-            Vector3 directionToTarget = (target.position - transform.position).normalized;
-            float horizontalMove = directionToTarget.x;
-            transform.Translate(new Vector3(horizontalMove * Time.deltaTime * 5, 0, 0));
-            HandleAnimationAndDirection(horizontalMove);
+            MoveTowardsTarget();
         }
-        else if (!isCharging)
+        else if (ShouldStartCharge())
         {
             StartCharge();
         }
+
+        else if (IsTimeToAttack())
+        {
+            PerformAttack();
+        }
+        else
+        {
+            isCharging = false;
+        }
     }
 
-    void IdleChecker()
+    private bool ShouldMoveTowardsTarget()
+    {
+        return Vector3.Distance(transform.position, adjustedTargetPosition) > closeEnoughRange || Mathf.Abs(transform.position.y - adjustedTargetPosition.y) >= yLevelThreshold;
+    }
+
+    private void MoveTowardsTarget()
+    {
+        Vector3 moveDirection = (adjustedTargetPosition - transform.position).normalized;
+
+        if (!isCharging)
+        {
+            transform.Translate(moveDirection * idleMoveSpeed * Time.deltaTime);
+            HandleAnimationDirection(moveDirection.x);
+        }
+    }
+
+
+    private bool ShouldStartCharge()
+    {
+        return !isCharging && Time.time >= nextChargeTime;
+    }
+
+    private bool IsTimeToAttack()
+    {
+        return isCharging && Time.time > nextChargeTime;
+    }
+
+    private void UpdateIdleState()
     {
         Vector3 currentPosition = transform.position;
-        float distanceMoved = (currentPosition - lastPosition).magnitude;
-
-        if (distanceMoved < movementThreshold)
+        if (Vector3.Distance(currentPosition, lastPosition) < movementThreshold)
         {
             animator.SetBool("idle", true);
         }
@@ -70,73 +99,39 @@ public class OrkController : MonoBehaviour
         lastPosition = currentPosition;
     }
 
-    void RandomIdleMovement()
+    private void ExecuteIdleBehavior()
     {
         idleMoveTimer -= Time.deltaTime;
         if (idleMoveTimer <= 0)
         {
             idleMoveTimer = idleMoveFrequency;
-            idleDirection = (Random.value > 0.5f) ? Vector3.right : Vector3.left;
-        }
-
-        transform.Translate(idleDirection * idleMoveSpeed * Time.deltaTime);
-        HandleAnimationAndDirection(idleDirection.x);
-    }
-
-    void StartCharge()
-    {
-        if (!isCharging && Time.time >= nextChargeTime)
-        {
-            isCharging = true;
-            chargeStartTime = Time.time;
-            attackDirection = (target.position - transform.position).normalized;
-
-            if (attackIndicatorPrefab)
-            {
-                GameObject indicator = Instantiate(attackIndicatorPrefab, transform.position, Quaternion.identity, transform);
-            }
-
-            animator.SetTrigger("charge");
-            nextChargeTime = Time.time + chargeCooldown;
+            Vector3 idleDirection = Random.value > 0.5f ? Vector3.right : Vector3.left;
+            transform.Translate(idleDirection * idleMoveSpeed * Time.deltaTime);
+            HandleAnimationDirection(idleDirection.x);
         }
     }
 
-
-    void PerformAttack()
+    private void StartCharge()
     {
-        if (isCharging && Time.time - chargeStartTime >= chargeTime)
-        {
-            foreach (Transform child in transform)
-            {
-                if (child.gameObject.CompareTag("AttackIndicator"))
-                {
-                    Destroy(child.gameObject);
-                }
-            }
+        isCharging = true;
+        chargeStartTime = Time.time;
+        Instantiate(attackIndicatorPrefab, transform.position, Quaternion.identity, transform);
+        animator.SetTrigger("charge");
+        nextChargeTime = Time.time + chargeCooldown;
+    }
 
-            Debug.Log("Attack executed towards " + attackDirection);
+    private void PerformAttack()
+    {
+        if (Time.time - chargeStartTime >= chargeTime)
+        {
             isCharging = false;
-
             animator.SetBool("charge", false);
-            animator.SetTrigger("attack");
         }
     }
 
 
-    void HandleAnimationAndDirection(float moveDirection)
+    private void HandleAnimationDirection(float horizontalMovement)
     {
-        if (moveDirection > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-        else if (moveDirection < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-
-        if (Mathf.Abs(moveDirection) < 0.01f)
-        {
-            animator.SetBool("idle", true);
-        }
-        else
-        {
-            animator.SetBool("idle", false);
-        }
+        transform.localScale = new Vector3(horizontalMovement > 0 ? 1 : -1, 1, 1);
     }
 }
