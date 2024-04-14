@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 4956973001395435795}
+  clip: {fileID: 8300000, guid: 649e55a38f36a924081e9f6c259a5d0b, type: 3}
   _light2D: {fileID: 4443861956600791915}
 --- !u!212 &149251607165312501
 SpriteRenderer:
