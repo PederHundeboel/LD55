@@ -49,7 +49,10 @@ MonoBehaviour:
   onEmpty:
     m_PersistentCalls:
       m_Calls: []
-  onChange:
+  onValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onMaxChange:
     m_PersistentCalls:
       m_Calls: []
   onFull:
@@ -61,7 +64,7 @@ MonoBehaviour:
   onIncrease:
     m_PersistentCalls:
       m_Calls: []
-  OrbPrefabs:
-  - {fileID: 6916094334177539102, guid: 10787970a9ee9dc4f91989203469c42f, type: 3}
+  OrbPrefab: {fileID: 2712334040071023852, guid: 10787970a9ee9dc4f91989203469c42f, type: 3}
   Target: {fileID: 0}
-  Radius: 0.4
+  InnerRadius: 0.43
+  OuterRadius: 1

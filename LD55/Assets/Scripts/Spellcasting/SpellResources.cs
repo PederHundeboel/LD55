@@ -19,33 +19,9 @@ public class SpellResources : MonoBehaviour
     {
         
     }
-
-    public void CastSpell(SpellType type)
+    public void CastSpell()
     {
-        switch (type)
-        {
-            case SpellType.Utility:
-                if (Utility.GetValue() > 0)
-                {
-                    Utility.Subtract(1);
-                    Debug.Log("Utility spell casted");
-                }
-                break;
-            case SpellType.Offensive:
-                if (Offensive.GetValue() > 0)
-                {
-                    Offensive.Subtract(1);
-                    Debug.Log("Offensive spell casted");
-                }
-                break;
-            case SpellType.Defensive:
-                if (Defensive.GetValue() > 0)
-                {
-                    Defensive.Subtract(1);
-                    Debug.Log("Defensive spell casted");
-                }
-                break;
-        }
+        Orbs.ConsumeOrbs();
     }
     
     public void EnhanceType(SpellType type)
@@ -53,7 +29,7 @@ public class SpellResources : MonoBehaviour
         //if any orbs are available, consume one and enhance the spell
         if (Orbs.HasPassiveOrb())
         {
-            Orbs.ActivateOrb();
+            var orb = Orbs.GetPassiveOrb();
             switch (type)
             {
                 case SpellType.Utility:
@@ -66,6 +42,8 @@ public class SpellResources : MonoBehaviour
                     Defensive.Add(1);
                     break;
             }
+            
+            orb.SetType(type);
         }
     } 
 }

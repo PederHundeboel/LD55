@@ -4,17 +4,19 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Orbs : Container
 {
 
-    public List<GameObject> OrbPrefabs;
-    public GameObject Target;
-    public float Radius = 1;
+    public Orb OrbPrefab;
+    public Player Target;
+    public float InnerRadius = 0.5f;
+    public float OuterRadius = 1.5f;
 
-    private List<GameObject> _orbs = new List<GameObject>();
-    private Dictionary<GameObject, float> _activeOrbCooldowns = new Dictionary<GameObject, float>();
+    private List<Orb> _orbs = new ();
     private float angleOffset = 0;
+    private int _targetSortOrder => Target.GetSortOrder();
 
     // Start is called before the first frame update
     void Start()
@@ -50,61 +52,72 @@ public class Orbs : Container
             Debug.LogError("No orbs to remove");
             return;
         }
-
-        GameObject orb = _orbs.First();
+        
+        var orb = _orbs.First();
         _orbs.Remove(orb);
         Destroy(orb);
     }
 
     public void CreateOrb(int index = 0)
     {
-        if (index >= OrbPrefabs.Count)
-        {
-            Debug.LogError("Orb index out of range");
-            return;
-        }
-
-        GameObject orb = Instantiate(OrbPrefabs[index], transform);
+        var orb = Instantiate(OrbPrefab, transform);
         orb.transform.localPosition = Vector3.zero;
 
         _orbs.Add(orb);
-        _activeOrbCooldowns[orb] = 0;
     }
 
-    public void ActivateOrb()
+    public Orb GetPassiveOrb()
     {
         if (value <= 0)
         {
-            return;
+            return null;
         }
 
-        GameObject orb = _orbs.First(o => _activeOrbCooldowns[o] <= 0);
+        var orb = _orbs.First(o => !o.IsActive);
         if (orb)
         {
-            _activeOrbCooldowns[orb] = 1;
+            return orb;
         }
+        return null;
     }
     
     public bool HasPassiveOrb()
     {
-        return _orbs.Any(o => _activeOrbCooldowns[o] <= 0);
+        return _orbs.Any(o => !o.IsActive);
     }
 
+    public Dictionary<SpellResources.SpellType, int> ConsumeOrbs()
+    {
+        Dictionary<SpellResources.SpellType, int> consumedValues = new();
+        foreach (var orb in _orbs)
+        {
+            if (orb.IsActive)
+            {
+                if (consumedValues.ContainsKey(orb.Type))
+                {
+                    consumedValues[orb.Type]++;
+                }
+                else
+                {
+                    consumedValues[orb.Type] = 1;
+                }
+                orb.SetDefault();
+            }
+        }
+
+        return consumedValues;
+    }
+    
     // Update is called once per frame
     void Update()
     {
         angleOffset += Time.deltaTime;
         float offset = 2 * Mathf.PI / _orbs.Count;
 
-        foreach (GameObject orb in _orbs)
+        foreach (Orb orb in _orbs)
         {
-            if (_activeOrbCooldowns[orb] > 0)
-            {
-                _activeOrbCooldowns[orb] -= Time.deltaTime;
-            }
-
             float angle = angleOffset + _orbs.IndexOf(orb) * offset;
-            float radius = _activeOrbCooldowns[orb] > 0 ? 0 : Radius;
+            float radius = orb.IsActive ? InnerRadius : OuterRadius;
 
             float x = Mathf.Cos(angle) * radius;
             float y = Mathf.Sin(angle) * radius;
@@ -115,7 +128,7 @@ public class Orbs : Container
             SpriteRenderer spriteRenderer = orb.GetComponent<SpriteRenderer>();
             if (spriteRenderer)
             {
-                spriteRenderer.sortingOrder = orb.transform.position.y > Target.transform.position.y ? -1 : 1;
+                spriteRenderer.sortingOrder = orb.transform.position.y > Target.transform.position.y ? _targetSortOrder-1 : _targetSortOrder+1;
             }
         }
     }

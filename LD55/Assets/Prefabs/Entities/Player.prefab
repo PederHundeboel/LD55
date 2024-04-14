@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
+  SpriteRenderer: {fileID: 6367808985549105817}
   _orbsContainer: {fileID: 0}
   _spellResources: {fileID: 4491360151042064154}
 --- !u!114 &2699983860930185730

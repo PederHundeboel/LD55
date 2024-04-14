@@ -7,9 +7,12 @@ public class Player : MonoBehaviour
 {
 
     public float Speed = 5f;
-
+    public SpriteRenderer SpriteRenderer;
+    
+    
     private Vector2 _velocity;
     private Rigidbody2D _rigidbody;
+    
 
     private Animator _animator;
 
@@ -55,24 +58,19 @@ public class Player : MonoBehaviour
         {
             _spellResources.EnhanceType(SpellResources.SpellType.Defensive);
         }
-        
-        //use q e, r to cast spells
-        if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
-            _spellResources.CastSpell(SpellResources.SpellType.Utility);
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            _spellResources.CastSpell(SpellResources.SpellType.Offensive);
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            _spellResources.CastSpell(SpellResources.SpellType.Defensive);
+            _spellResources.CastSpell();
         }
     }
 
     void FixedUpdate()
     {
         _rigidbody.MovePosition(_rigidbody.position + _velocity * Time.fixedDeltaTime);
+    }
+
+    public int GetSortOrder()
+    { 
+        return SpriteRenderer.sortingOrder;
     }
 }
