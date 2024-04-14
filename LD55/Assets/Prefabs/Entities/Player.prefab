@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 6055737854760766270}
   - component: {fileID: 2699983860930185730}
   - component: {fileID: 4491360151042064154}
+  - component: {fileID: 2439333374280476228}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -206,6 +207,41 @@ MonoBehaviour:
   Utility: {fileID: 5027986798923174692}
   Offensive: {fileID: 1171803015209111683}
   Defensive: {fileID: 2000733764934820999}
+--- !u!70 &2439333374280476228
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2806684678242635780}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011644423, y: -0.058222115}
+  m_Size: {x: 0.32145214, y: 0.88355577}
+  m_Direction: 0
 --- !u!1 &3778467862832960008
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +377,7 @@ MonoBehaviour:
   - {x: 0.023004964, y: -0.47844622, z: 0}
   m_ShapePathHash: -1117671417
   m_Mesh: {fileID: 0}
-  m_InstanceId: -286138
+  m_InstanceId: 54460
   m_LocalBounds:
     m_Center: {x: -0.07205634, y: -0.3911653, z: 0}
     m_Extent: {x: 0.17219242, y: 0.094626814, z: 0}
