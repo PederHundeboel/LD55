@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class Orbs : Container
 {
@@ -88,8 +89,9 @@ public class Orbs : Container
 
     public Dictionary<SpellResources.SpellType, int> ConsumeOrbs()
     {
+        var consumedOrbs = _orbs.Where(o => o.IsActive).ToList();
         Dictionary<SpellResources.SpellType, int> consumedValues = new();
-        foreach (var orb in _orbs)
+        foreach (var orb in consumedOrbs)
         {
             if (orb.IsActive)
             {
@@ -101,13 +103,39 @@ public class Orbs : Container
                 {
                     consumedValues[orb.Type] = 1;
                 }
-                orb.SetDefault();
             }
+            
+            ShakeOrbs(consumedOrbs);
         }
 
         return consumedValues;
     }
+
+    private void ShakeOrbs(List<Orb> consumedOrbs)
+    {
+        // Start a coroutine to shake the orbs
+        StartCoroutine(JitterOrbs(consumedOrbs, 1f));
+    }
     
+    private IEnumerator JitterOrbs(List<Orb> orbs, float duration)
+    {
+        float startTime = Time.time;
+
+        while (Time.time - startTime < duration)
+        {
+            foreach (var orb in orbs)
+            {
+                orb.transform.position += new Vector3(Random.Range(-0.01f, 0.01f), Random.Range(-0.01f, 0.01f), 0);
+            }
+            yield return null;
+        }
+
+        foreach (var orb in orbs)
+        {
+            orb.SetDefault();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

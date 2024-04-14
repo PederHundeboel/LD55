@@ -21,7 +21,7 @@ public class SpellResources : MonoBehaviour
     }
     public void CastSpell()
     {
-        Orbs.ConsumeOrbs();
+        var consumed = Orbs.ConsumeOrbs();
     }
     
     public void EnhanceType(SpellType type)
