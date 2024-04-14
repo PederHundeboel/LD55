@@ -18,6 +18,8 @@ public class Orbs : Container
     private List<Orb> _orbs = new ();
     private float angleOffset = 0;
     private int _targetSortOrder => Target.GetSortOrder();
+    
+    private float soundDelay = 1.387f;
 
     // Start is called before the first frame update
     void Start()
@@ -87,7 +89,7 @@ public class Orbs : Container
         return _orbs.Any(o => !o.IsActive);
     }
 
-    public Dictionary<SpellResources.SpellType, int> ConsumeOrbs()
+    public Dictionary<SpellResources.SpellType, int> ConsumeOrbs(Action onConsume = null, Action onCast = null)
     {
         var consumedOrbs = _orbs.Where(o => o.IsActive).ToList();
         Dictionary<SpellResources.SpellType, int> consumedValues = new();
@@ -104,20 +106,19 @@ public class Orbs : Container
                     consumedValues[orb.Type] = 1;
                 }
             }
-            
-            ShakeOrbs(consumedOrbs);
         }
+        onConsume?.Invoke();
+        ShakeOrbs(consumedOrbs, onCast);
 
         return consumedValues;
     }
 
-    private void ShakeOrbs(List<Orb> consumedOrbs)
+    private void ShakeOrbs(List<Orb> consumedOrbs, Action onCast)
     {
-        // Start a coroutine to shake the orbs
-        StartCoroutine(JitterOrbs(consumedOrbs, 1f));
+        StartCoroutine(JitterOrbs(consumedOrbs, soundDelay, onCast));
     }
     
-    private IEnumerator JitterOrbs(List<Orb> orbs, float duration)
+    private IEnumerator JitterOrbs(List<Orb> orbs, float duration, Action onCast)
     {
         float startTime = Time.time;
 
@@ -134,6 +135,7 @@ public class Orbs : Container
         {
             orb.SetDefault();
         }
+        onCast?.Invoke();
     }
 
     // Update is called once per frame
