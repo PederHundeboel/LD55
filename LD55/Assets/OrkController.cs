@@ -113,4 +113,9 @@ public class OrkController : MonoBehaviour
     {
         transform.localScale = new Vector3(horizontalMovement > 0 ? 1 : -1, 1, 1);
     }
+    
+    public void Kill()
+    {
+        Destroy(gameObject);
+    }
 }

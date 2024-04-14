@@ -12,6 +12,9 @@ public class SpellCast : MonoBehaviour
     public Light2D _light2D;
     private static readonly int CastSpell = Animator.StringToHash("CastSpell");
 
+    public Vector2 boxSize = new Vector2(0.5f, 0.5f);
+    public Vector2 boxOffset = Vector2.zero;
+    private float windUpTime = 1.42f;
 
     public void Start()
     {
@@ -24,6 +27,48 @@ public class SpellCast : MonoBehaviour
         if (_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !_animator.IsInTransition(0))
         {
             Destroy(gameObject);
+        }
+        //subtract from windup time
+        windUpTime -= Time.deltaTime;
+        if (windUpTime <= 0)
+        {
+            CheckCollisions();
+            windUpTime = 1.42f;
+        }
+    }
+    
+    private void CheckCollisions()
+    {
+        Vector2 boxCenter = (Vector2)transform.position + boxOffset;
+
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(boxCenter, boxSize, 0);
+
+        List<OrkController> hitOrks = new List<OrkController>();
+
+        foreach (Collider2D hitCollider in hitColliders)
+        {
+            //TODO check for boss
+            if (false)
+            {
+                
+            }
+            if (hitCollider.GetComponent<OrkController>())
+            {
+                if (!hitOrks.Contains(hitCollider.GetComponent<OrkController>()))
+                {
+                    hitOrks.Add(hitCollider.GetComponent<OrkController>());
+                }
+            }
+        }
+        ApplyEffect(hitOrks);
+    }
+
+    private void ApplyEffect(List<OrkController> orks)
+    {
+        foreach (OrkController ork in orks)
+        {
+            HealthContainer health = ork.GetComponent<HealthContainer>();
+            health.Subtract(3);
         }
     }
 }
