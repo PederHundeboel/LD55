@@ -15,13 +15,36 @@ public class SpellResources : MonoBehaviour
     public Orbs Orbs;
     public Container Utility, Offensive, Defensive;
 
+    private AudioSource _audioSource;
+    public AudioClip CastSound;
+    
+    public SpellCast SpellCast;
+
     private void Awake()
     {
-        
+        _audioSource = gameObject.AddComponent<AudioSource>();
     }
+
     public void CastSpell()
     {
-        var consumed = Orbs.ConsumeOrbs();
+        var consumed = Orbs.ConsumeOrbs(() =>
+        {
+            //play sound
+            var audioSource = GetComponent<AudioSource>();
+            audioSource.clip = CastSound;
+            audioSource.Play();
+        });
+
+        if (consumed.Count > 0)
+        {
+            //cast spell by instantiating a spell prefab at mouse position. keep z at 0
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0;
+            Instantiate(SpellCast, mousePos, Quaternion.identity);
+            
+
+        }
+        
     }
     
     public void EnhanceType(SpellType type)

@@ -19,7 +19,7 @@ public class Orbs : Container
     private float angleOffset = 0;
     private int _targetSortOrder => Target.GetSortOrder();
     
-    private float soundDelay = 1.387f;
+    public float soundDelay = 1.42f;
 
     // Start is called before the first frame update
     void Start()

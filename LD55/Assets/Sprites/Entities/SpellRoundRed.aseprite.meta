@@ -2,7 +2,12 @@ fileFormatVersion: 2
 guid: df0e13befed83274bb870f57c29168e0
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: SpellRoundRed_Clip
+    second: {fileID: 7400000, guid: 77c9839b327a3934796148137f26e61f, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -35,7 +40,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 32
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638487103295857430
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,7 +128,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: SpellRoundRed_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -143,7 +148,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: SpellRoundRed_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -163,7 +168,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 31}
   - name: SpellRoundRed_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -183,7 +188,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 58}
   - name: SpellRoundRed_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -203,7 +208,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 85}
   - name: SpellRoundRed_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -223,7 +228,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 112}
   - name: SpellRoundRed_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -243,7 +248,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 139}
   - name: SpellRoundRed_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -263,7 +268,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 166}
   - name: SpellRoundRed_Frame_7
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -283,7 +288,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 193}
   - name: SpellRoundRed_Frame_8
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -303,7 +308,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 220}
   - name: SpellRoundRed_Frame_9
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -323,7 +328,7 @@ ScriptedImporter:
     uvTransform: {x: 54, y: 4}
   - name: SpellRoundRed_Frame_10
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -343,7 +348,7 @@ ScriptedImporter:
     uvTransform: {x: 54, y: 31}
   - name: SpellRoundRed_Frame_11
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -363,7 +368,7 @@ ScriptedImporter:
     uvTransform: {x: 54, y: 58}
   - name: SpellRoundRed_Frame_12
     originalName: 
-    pivot: {x: 0.5, y: -0.52631575}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -496,7 +501,43 @@ ScriptedImporter:
       spriteId: 83857dfea3501114aa6cb37d23a99af0
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
