@@ -15,15 +15,9 @@ public class SpellResources : MonoBehaviour
     public Orbs Orbs;
     public Container Utility, Offensive, Defensive;
 
-    public AudioSource _audioSource;
     public AudioClip CastSound;
     
     public SpellCast SpellCast;
-
-    private void Awake()
-    {
-        _audioSource = gameObject.GetComponent<AudioSource>();
-    }
 
     public void CastSpell()
     {

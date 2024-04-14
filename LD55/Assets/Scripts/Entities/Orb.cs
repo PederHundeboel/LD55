@@ -81,6 +81,7 @@ public class Orb : MonoBehaviour
     public void SetDefault()
     {
         _spriteRenderer.sprite = _defaultSprite;
+        _light2D.color = Color.white;
         IsActive = false;
     }
 }

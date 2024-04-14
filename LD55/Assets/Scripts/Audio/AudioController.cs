@@ -25,6 +25,9 @@ public class AudioController : MonoBehaviour
         audioSourceGameObject.transform.position = position;
 
         AudioSource audioSource = audioSourceGameObject.AddComponent<AudioSource>();
+        audioSource.spatialize = true;
+        audioSource.spatialBlend = 1;
+        audioSource.volume = 0.5f;
         audioSource.clip = clip;
         audioSource.Play();
 

@@ -13,6 +13,9 @@ public class OneTimeAudioClip : MonoBehaviour
 
     private void Start()
     {
+        _audioSource.spatialize = true;
+        _audioSource.spatialBlend = 1;
+        _audioSource.volume = 0.5f;
         _audioSource.Play();
     }
 

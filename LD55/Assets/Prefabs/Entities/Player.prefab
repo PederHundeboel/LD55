@@ -256,6 +256,8 @@ MonoBehaviour:
   Utility: {fileID: 5027986798923174692}
   Offensive: {fileID: 1171803015209111683}
   Defensive: {fileID: 2000733764934820999}
+  CastSound: {fileID: 8300000, guid: 649e55a38f36a924081e9f6c259a5d0b, type: 3}
+  SpellCast: {fileID: 3596820894476795143, guid: 6e809ff146e4fe24a996940e6d715d52, type: 3}
 --- !u!70 &2439333374280476228
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -522,7 +524,7 @@ MonoBehaviour:
   - {x: 0.023004964, y: -0.47844622, z: 0}
   m_ShapePathHash: -1117671417
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1300
+  m_InstanceId: 30166
   m_LocalBounds:
     m_Center: {x: -0.07205634, y: -0.3911653, z: 0}
     m_Extent: {x: 0.17219242, y: 0.094626814, z: 0}
