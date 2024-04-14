@@ -91,9 +91,13 @@ public class Orbs : Container
 
     public Dictionary<SpellResources.SpellType, int> ConsumeOrbs(Action onConsume = null, Action onCast = null)
     {
-        var consumedOrbs = _orbs.Where(o => o.IsActive).ToList();
+        var consumableOrbs = _orbs.Where(o => o.IsActive).ToList();
         Dictionary<SpellResources.SpellType, int> consumedValues = new();
-        foreach (var orb in consumedOrbs)
+        if (consumableOrbs.Count < 3)
+        {
+            return consumedValues;
+        }
+        foreach (var orb in consumableOrbs)
         {
             if (orb.IsActive)
             {
@@ -108,7 +112,7 @@ public class Orbs : Container
             }
         }
         onConsume?.Invoke();
-        ShakeOrbs(consumedOrbs, onCast);
+        ShakeOrbs(consumableOrbs, onCast);
 
         return consumedValues;
     }

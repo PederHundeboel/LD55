@@ -23,10 +23,6 @@ public class SpellResources : MonoBehaviour
     {
         var consumed = Orbs.ConsumeOrbs(() =>
         {
-            //play sound
-            var audioSource = GetComponent<AudioSource>();
-            audioSource.clip = CastSound;
-            // audioSource.Play();
         });
 
         if (consumed.Count > 0)
