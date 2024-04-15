@@ -8,21 +8,40 @@ public class OrkBoss : MonoBehaviour
 {
     public GameObject peonPrefab;
     public List<GameObject> spawnPoints;
-    //this is omegascuffed but it's fine for now
-    public List<SpellResources.SpellType> _healthBar;
+    public Container health;
     private GameObject _player;
     private bool _isSummoning = false;
 
+    List<BossShield> _shields = new List<BossShield>();
+
+    public List<Transform> _shieldPositions;
+    
+    public BossShieldIndicator shieldIndicatorPrefab;
+
+    public List<BossShieldIndicator> shieldIndicators;
     private void Start()
     {
-        _player = FindObjectOfType<Player>().gameObject;
-        for (int i = 0; i < 10; i++)
+        //add 3 shields
+        for (int i = 0; i < 3; i++)
         {
-            _healthBar.Add((SpellResources.SpellType)Random.Range(0, 3));
+            _shields.Add(new BossShield());
         }
-        foreach (var spellType in _healthBar)
+        _player = FindObjectOfType<Player>().gameObject;
+        
+        
+        health.SetMax(3);
+        health.Add(3);
+        
+        SetShieldBars();
+    }
+
+    private void SetShieldBars()
+    {
+        for (int i = 0; i < _shields.Count; i++)
         {
-            Debug.Log(spellType);
+            var shieldIndicator = Instantiate(shieldIndicatorPrefab, Vector3.zero, Quaternion.identity, _shieldPositions[i]);
+            shieldIndicator.SetBar(_shields[i].sequence);
+            shieldIndicators.Add(shieldIndicator);
         }
     }
 
@@ -49,35 +68,19 @@ public class OrkBoss : MonoBehaviour
         peon.GetComponent<OrkController>().SetTarget(_player.transform);
     }
 
-    public void HitWithSpell(List<SpellResources.SpellType> dictionary)
+    public void HitWithSpell(List<SpellResources.SpellType> hit)
     {
-        //this is untested for now (note for mr unbreakable)
-        // int count = Math.Min(3, _healthBar.Count);
-        // for (int i = 0; i < count; i++)
-        // {
-        //     if (dictionary.ContainsKey(_healthBar[i]))
-        //     {
-        //         dictionary[_healthBar[i]]--;
-        //         if (dictionary[_healthBar[i]] == 0)
-        //         {
-        //             dictionary.Remove(_healthBar[i]);
-        //         }
-        //         _healthBar.RemoveAt(i);
-        //         i--;
-        //         count--; 
-        //     }
-        //     else
-        //     {
-        //         _healthBar.Add((SpellResources.SpellType)Random.Range(0, 3));
-        //     }
-        // }
-        //for debug purposes, log the health bar to the console
-        foreach (var spellType in _healthBar)
+        var shield = _shields.Find(s => !s.isDestroyed && s.AttemptAttack(hit));
+        if (shield != null)
         {
-            Debug.Log(spellType);
+            var shieldIndex = _shields.IndexOf(shield);
+            var shieldIndicator = shieldIndicators[shieldIndex];
+            shieldIndicator.EmptyBar();
+            health.Subtract(1);
+            shield.isDestroyed = true;
         }
-        
-        if (_healthBar.Count == 0)
+
+        if (health.GetValue() == 0)
         {
             Destroy(gameObject);
         }
@@ -86,5 +89,36 @@ public class OrkBoss : MonoBehaviour
     private void OnDestroy()
     {
         CancelInvoke();
+    }
+    
+    public class BossShield
+    {
+        public bool isDestroyed = false;
+        public List<SpellResources.SpellType> sequence = new List<SpellResources.SpellType>();
+
+        public BossShield()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                sequence.Add((SpellResources.SpellType)Random.Range(0, 3));
+            }
+        }
+        public bool AttemptAttack(List<SpellResources.SpellType> hit)
+        {
+            //idk whats going on elp
+            List<SpellResources.SpellType> copything = new List<SpellResources.SpellType>();
+            copything.AddRange(hit);
+            var matched = 0;
+            foreach (var s in sequence)
+            {
+                //find match in hit, remove it. add 1 to matched
+                if (copything.Contains(s))
+                {
+                    copything.Remove(s);
+                    matched++;
+                }
+            }
+            return matched == 3;
+        }
     }
 }
