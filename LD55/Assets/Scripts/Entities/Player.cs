@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         
         if (Input.GetButtonDown("Fire1"))
         {
-            _orbsContainer.Add(1);
+            _spellResources.CastSpell();
         }
         
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -57,10 +57,6 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             _spellResources.EnhanceType(SpellResources.SpellType.Defensive);
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _spellResources.CastSpell();
         }
     }
 
