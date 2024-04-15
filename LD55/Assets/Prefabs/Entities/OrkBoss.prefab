@@ -103,9 +103,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   health: {fileID: 8297117636766214139}
+  onDied:
+    m_PersistentCalls:
+      m_Calls: []
   _shieldPositions: []
   shieldIndicatorPrefab: {fileID: 4087062463966407123, guid: 857a4e1fa0961cc4299bf75c9964c1bd, type: 3}
   shieldIndicators: []
+  summonCirclePrefab: {fileID: 0}
+  summonSound: {fileID: 8300000, guid: 09285afe64b606044b4bba58b6cced49, type: 3}
 --- !u!70 &7568966007622001741
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -220,7 +225,7 @@ MonoBehaviour:
   - {x: -0.09513944, y: 0.22671573, z: 0}
   m_ShapePathHash: 350577034
   m_Mesh: {fileID: 0}
-  m_InstanceId: 76426
+  m_InstanceId: 86214
   m_LocalBounds:
     m_Center: {x: -0.061662227, y: 0.37180728, z: 0}
     m_Extent: {x: 0.21248901, y: 0.14509153, z: 0}

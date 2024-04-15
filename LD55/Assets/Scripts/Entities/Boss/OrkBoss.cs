@@ -22,6 +22,9 @@ public class OrkBoss : MonoBehaviour
     public BossShieldIndicator shieldIndicatorPrefab;
 
     public List<BossShieldIndicator> shieldIndicators;
+    
+    public SummonCircle summonCirclePrefab;
+    public AudioClip summonSound;
     private void Start()
     {
         //add 3 shields
@@ -67,10 +70,19 @@ public class OrkBoss : MonoBehaviour
         int randomIndex = Random.Range(0, spawnPoints.Count);
         Vector3 spawnPosition = spawnPoints[randomIndex].transform.position;
 
-        var peon = Instantiate(peonPrefab, spawnPosition, Quaternion.identity);
-        peon.GetComponent<OrkController>().SetTarget(_player.transform);
+        Instantiate(summonCirclePrefab, spawnPosition, Quaternion.identity);
+        
+        StartCoroutine(SpawnPeonAfterDelay(1.2f, spawnPosition));
     }
 
+    public IEnumerator SpawnPeonAfterDelay(float delay, Vector3 position)
+    {
+        yield return new WaitForSeconds(delay);
+        var peon = Instantiate(peonPrefab, position, Quaternion.identity);
+        peon.GetComponent<OrkController>().SetTarget(_player.transform);
+        AudioController.Instance.PlayOneShotAudioClip(summonSound, position);
+    }
+    
     public void HitWithSpell(List<SpellResources.SpellType> hit)
     {
         var shield = _shields.Find(s => !s.isDestroyed && s.AttemptAttack(hit));
@@ -92,6 +104,8 @@ public class OrkBoss : MonoBehaviour
 
     private void OnDestroy()
     {
+        StopAllCoroutines();
+        
         CancelInvoke();
     }
     
