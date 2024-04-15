@@ -51,34 +51,10 @@ MonoBehaviour:
       m_Calls: []
   onValueChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
-        m_MethodName: UpdateBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onMaxChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
-        m_MethodName: SetBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onFull:
     m_PersistentCalls:
       m_Calls: []
@@ -101,10 +77,9 @@ GameObject:
   - component: {fileID: 6055737854760766270}
   - component: {fileID: 2699983860930185730}
   - component: {fileID: 4491360151042064154}
-  - component: {fileID: 2439333374280476228}
-  - component: {fileID: 6545493018684785028}
+  - component: {fileID: 8655321833245720063}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerBak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,8 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75a260d4473a1b4b8207a1d275cbe1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxValue: 4
-  value: 4
+  maxValue: 0
+  value: 0
   onEmpty:
     m_PersistentCalls:
       m_Calls: []
@@ -193,8 +168,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
-        m_MethodName: UpdateBar
+        m_TargetAssemblyTypeName: Healthbar, Assembly-CSharp
+        m_MethodName: UpdateHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -206,37 +181,13 @@ MonoBehaviour:
         m_CallState: 2
   onMaxChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
-        m_MethodName: SetBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onFull:
     m_PersistentCalls:
       m_Calls: []
   onDecrease:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6545493018684785028}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 7d451c32c2d67094f94ef7aead11cb40, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
   onIncrease:
     m_PersistentCalls:
       m_Calls: []
@@ -256,44 +207,10 @@ MonoBehaviour:
   Utility: {fileID: 5027986798923174692}
   Offensive: {fileID: 1171803015209111683}
   Defensive: {fileID: 2000733764934820999}
+  _audioSource: {fileID: 8655321833245720063}
   CastSound: {fileID: 8300000, guid: 649e55a38f36a924081e9f6c259a5d0b, type: 3}
-  SpellCast: {fileID: 3596820894476795143, guid: 6e809ff146e4fe24a996940e6d715d52, type: 3}
---- !u!70 &2439333374280476228
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2806684678242635780}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.34}
-  m_Size: {x: 0.28, y: 0.07}
-  m_Direction: 0
---- !u!82 &6545493018684785028
+  SpellCast: {fileID: 0}
+--- !u!82 &8655321833245720063
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,9 +220,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7d451c32c2d67094f94ef7aead11cb40, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.097
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -349,7 +266,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -524,7 +441,7 @@ MonoBehaviour:
   - {x: 0.023004964, y: -0.47844622, z: 0}
   m_ShapePathHash: -1117671417
   m_Mesh: {fileID: 0}
-  m_InstanceId: 30166
+  m_InstanceId: 47018
   m_LocalBounds:
     m_Center: {x: -0.07205634, y: -0.3911653, z: 0}
     m_Extent: {x: 0.17219242, y: 0.094626814, z: 0}
@@ -579,34 +496,10 @@ MonoBehaviour:
       m_Calls: []
   onValueChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
-        m_MethodName: UpdateBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onMaxChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
-        m_MethodName: SetBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onFull:
     m_PersistentCalls:
       m_Calls: []
@@ -667,34 +560,10 @@ MonoBehaviour:
       m_Calls: []
   onValueChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
-        m_MethodName: UpdateBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onMaxChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ContainerBar, Assembly-CSharp
-        m_MethodName: SetBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onFull:
     m_PersistentCalls:
       m_Calls: []

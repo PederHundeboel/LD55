@@ -108,9 +108,18 @@ public class OrkController : MonoBehaviour
         nextChargeTime = Time.time + chargeCooldown;
     }
 
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 
     private void HandleAnimationDirection(float horizontalMovement)
     {
         transform.localScale = new Vector3(horizontalMovement > 0 ? 1 : -1, 1, 1);
+    }
+    
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 }

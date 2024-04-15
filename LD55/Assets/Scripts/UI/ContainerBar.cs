@@ -29,7 +29,8 @@ public class ContainerBar : MonoBehaviour
         for (int i = 0; i < _container.GetMax(); i++)
         {
             ContainerBarSegment newSegment = Instantiate(_segmentPrefab, transform);
-            float offset = (float)(i * (newSegment.GetComponent<RectTransform>().rect.height * 0.5));
+            var rectHeight = newSegment.GetComponent<RectTransform>().rect.height * 0.5;
+            float offset = (float)(i * rectHeight)+(i*3);
             newSegment.transform.localPosition = new Vector3(newSegment.transform.localPosition.x,
                 newSegment.transform.localPosition.y + offset, newSegment.transform.localPosition.z);
             segment.Add(newSegment);
