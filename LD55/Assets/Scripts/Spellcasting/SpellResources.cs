@@ -21,6 +21,7 @@ public class SpellResources : MonoBehaviour
     public SpellCast SpellCast;
 
     private List<SpellType> _enhancedSpells;
+    private bool _isCasting;
 
     private void Awake()
     {
@@ -29,9 +30,14 @@ public class SpellResources : MonoBehaviour
 
     public void CastSpell()
     {
+        if (_isCasting)
+        {
+            return;
+        }
         var consumed = Orbs.ConsumeOrbs(() =>
         {
-        });
+            _isCasting = true;
+        }, () => { _isCasting = false; });
 
         if (consumed.Count > 0)
         {
