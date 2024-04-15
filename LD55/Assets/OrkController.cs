@@ -24,26 +24,31 @@ public class OrkController : MonoBehaviour
     private float idleMoveTimer = 0;
     private Vector3 lastPosition;
     private const float movementThreshold = 0.01f;
-    
+
     public Action<List<SpellResources.SpellType>> OnHit;
-    
+
     private List<SpellResources.SpellType> _healthBar;
-    
+
     public OrkHealthIndicator healthIndicatorPrefab;
-    
+
     public OrkHealthIndicator healthIndicator;
+    private Rigidbody2D rb;
 
     private void Awake()
     {
+
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
         _healthBar = new List<SpellResources.SpellType>();
         for (int i = 0; i < 3; i++)
         {
             _healthBar.Add((SpellResources.SpellType)Random.Range(0, 3));
         }
-        
+
         healthIndicator = Instantiate(healthIndicatorPrefab, Vector3.zero, Quaternion.identity, transform);
         healthIndicator.SetBar(_healthBar);
-        
+
     }
 
     void FixedUpdate()
@@ -62,7 +67,7 @@ public class OrkController : MonoBehaviour
     {
         return _healthBar;
     }
-    
+
     private void ProcessTargetInteraction()
     {
         adjustedTargetPosition = target.position + targetOffset;
@@ -87,11 +92,11 @@ public class OrkController : MonoBehaviour
 
     private void MoveTowardsTarget()
     {
-        Vector3 moveDirection = (adjustedTargetPosition - transform.position).normalized;
+        Vector2 moveDirection = ((Vector2)adjustedTargetPosition - rb.position).normalized;
 
         if (!isCharging)
         {
-            transform.Translate(moveDirection * idleMoveSpeed * Time.deltaTime);
+            rb.velocity = moveDirection * idleMoveSpeed;
             HandleAnimationDirection(moveDirection.x);
         }
     }
@@ -122,8 +127,8 @@ public class OrkController : MonoBehaviour
         if (idleMoveTimer <= 0)
         {
             idleMoveTimer = idleMoveFrequency;
-            Vector3 idleDirection = Random.value > 0.5f ? Vector3.right : Vector3.left;
-            transform.Translate(idleDirection * idleMoveSpeed * Time.deltaTime);
+            Vector2 idleDirection = Random.value > 0.5f ? Vector2.right : Vector2.left;
+            rb.velocity = idleDirection * idleMoveSpeed;
             HandleAnimationDirection(idleDirection.x);
         }
     }
@@ -163,15 +168,15 @@ public class OrkController : MonoBehaviour
                 }
             }
         }
-        
+
         OnHit?.Invoke(_healthBar);
-        
+
         if (_healthBar.TrueForAll(x => x == SpellResources.SpellType.None))
         {
             Kill();
         }
     }
-    
+
     public void Kill()
     {
         Destroy(gameObject);
