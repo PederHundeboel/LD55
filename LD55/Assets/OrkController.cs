@@ -15,6 +15,7 @@ public class OrkController : MonoBehaviour
     [SerializeField] private float idleMoveFrequency = 3.0f;
     [SerializeField] private float chargeCooldown = 5.0f;
     [SerializeField] private Vector3 targetOffset = new Vector3(0, -0.5f, 0);
+    [SerializeField] private HealthContainer healthContainer;
     private Vector3 adjustedTargetPosition;
 
 
@@ -36,12 +37,13 @@ public class OrkController : MonoBehaviour
 
     private void Awake()
     {
+        healthContainer = GetComponent<HealthContainer>();
 
         rb = GetComponent<Rigidbody2D>();
         if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
         rb.gravityScale = 0;
         _healthBar = new List<SpellResources.SpellType>();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < healthContainer.GetMax(); i++)
         {
             _healthBar.Add((SpellResources.SpellType)Random.Range(0, 3));
         }
