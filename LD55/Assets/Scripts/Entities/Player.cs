@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     private Animator _animator;
     
-    private bool _faceLeft = false;
+    private bool _faceLeft = true;
 
     [SerializeField]
     private Orbs _orbsContainer;
