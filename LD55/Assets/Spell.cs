@@ -12,6 +12,7 @@ public class Spell : MonoBehaviour
         AudioController.Instance.PlayOneShotAudioClip(castSound, transform.position);
     }
 
+    //this spell is only used by enemies, and as such they should only hit player types
     private void CheckCollisions()
     {
         Vector2 boxCenter = (Vector2)transform.position + boxOffset;
@@ -20,11 +21,11 @@ public class Spell : MonoBehaviour
 
         foreach (Collider2D hitCollider in hitColliders)
         {
-            HealthContainer health = hitCollider.GetComponent<HealthContainer>();
-            if (health?.gameObject == this.transform.parent.gameObject) continue;
-            if (health != null)
+            Player player = hitCollider.GetComponent<Player>();
+            if (player != null)
             {
-                ApplyEffect(health);
+                var playerHealth = player.GetComponent<HealthContainer>();
+                ApplyEffect(playerHealth);
             }
         }
     }
