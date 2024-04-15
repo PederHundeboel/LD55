@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     
 
     private Animator _animator;
+    
+    private bool _faceLeft = false;
 
     [SerializeField]
     private Orbs _orbsContainer;
@@ -34,12 +36,19 @@ public class Player : MonoBehaviour
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         _velocity = input.normalized * Speed;
 
+        // check if the player is facing left
+        if (input.x != 0)
+        {
+            _faceLeft = input.x < 0;
+        }
+
         if (_animator)
         {
             _animator.SetFloat("Speed", input.magnitude);
-            _animator.SetFloat("MovementX", input.x);
-            _animator.SetFloat("MovementY", input.y);
         }
+        
+        //flip the sprite if the player is facing left
+        SpriteRenderer.flipX = !_faceLeft;
         
         if (Input.GetButtonDown("Fire1"))
         {
@@ -57,6 +66,11 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             _spellResources.EnhanceType(SpellResources.SpellType.Defensive);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            //flip sprite on the x axis
+            SpriteRenderer.flipX = !SpriteRenderer.flipX;
         }
     }
 
