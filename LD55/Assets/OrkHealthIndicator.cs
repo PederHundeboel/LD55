@@ -57,6 +57,7 @@ public class OrkHealthIndicator : MonoBehaviour
             newSegment.transform.localPosition = new Vector3(newSegment.transform.localPosition.x,
                 newSegment.transform.localPosition.y + offset, newSegment.transform.localPosition.z);
             newSegment.SetDisplayHealth(chunk != SpellResources.SpellType.None);
+            newSegment.SetSortOrder(100+index);
             
             _segments.Add(newSegment);
             index++;
@@ -86,6 +87,7 @@ public class OrkHealthIndicator : MonoBehaviour
         {
             _segments[i].fullHealthSprite = GetSegment(healthBar[i]);
             _segments[i].SetDisplayHealth(healthBar[i] != SpellResources.SpellType.None);
+            _segments[i].SetSortOrder(100+i);
         }
     }
 }

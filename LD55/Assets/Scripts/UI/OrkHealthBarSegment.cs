@@ -17,6 +17,11 @@ public class OrkHealtBarSegment : MonoBehaviour
         healthUiImage = GetComponent<SpriteRenderer>();
     }
 
+    public void SetSortOrder(int sortOrder)
+    {
+        healthUiImage.sortingOrder = sortOrder;
+    }
+    
     public void SetDisplayHealth(bool displayHealth)
     {
         if (displayHealth)
