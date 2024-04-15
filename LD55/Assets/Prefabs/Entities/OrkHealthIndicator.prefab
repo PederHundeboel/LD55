@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e38ef24d6cdcff645ba1a19bcd746072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0.5, y: 0.5}
+  offset: {x: 0.4, y: 0.7}
   _target: {fileID: 0}
   _segmentPrefab: {fileID: 3788520486257459175, guid: ea4fe49aeed7d5f49b8ecd157a463c8d, type: 3}
   _greenBar: {fileID: -1223630022, guid: 85bbedd78466e8f45878b9746f08a8f5, type: 3}

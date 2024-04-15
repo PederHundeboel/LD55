@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class OrkHealthIndicator : MonoBehaviour
 {
-    public Vector2 offset = new Vector2(0.5f, 0.5f);
+    public Vector2 offset = new Vector2(0.25f, 0.7f);
     private float segmentOffsetValue = 0.22f;
 
     [SerializeField] private OrkController _target;
@@ -26,7 +26,8 @@ public class OrkHealthIndicator : MonoBehaviour
         //get the target's health bar
         List<SpellResources.SpellType> healthBar = _target.GetHealthBar();
         _target.OnHit += UpdateBar;
-        
+        //set the health bar scale to .5
+        transform.localScale = new Vector3(0.5f, 0.5f, 1f);
     }
 
     private void Update()
