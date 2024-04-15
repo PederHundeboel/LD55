@@ -9,7 +9,8 @@ public class SpellResources : MonoBehaviour
     {
         Utility,
         Offensive,
-        Defensive
+        Defensive,
+        None
     }
 
     public Orbs Orbs;

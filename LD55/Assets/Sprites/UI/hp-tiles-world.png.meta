@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85bbedd78466e8f45878b9746f08a8f5
+guid: eff8082f9e6dba44aac7f041741fff56
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -98,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spell-tiles_0
+      name: hp-tiles_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89cb0eefe709c88418150e5d8238e956
-      internalID: -1092938773
+      spriteID: 21a7e626e8c965c40becc1d5b46c424f
+      internalID: 978860575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spell-tiles_1
+      name: hp-tiles_1
       rect:
         serializedVersion: 2
         x: 12
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92840a8f4d17a8e448b6358ff05a8d77
-      internalID: -1223630022
+      spriteID: 29cf0c1bc8d75ee46870a7179e33aa63
+      internalID: 371202529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spell-tiles_2
+      name: hp-tiles_2
       rect:
         serializedVersion: 2
         x: 24
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a07a501092badd04aa0150f3329987f6
-      internalID: 1393337698
+      spriteID: 8b2b3ff5be133354aad12b654670d2da
+      internalID: -1936280579
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spell-tiles_0: -1092938773
-      spell-tiles_1: -1223630022
-      spell-tiles_2: 1393337698
+      hp-tiles_0: 978860575
+      hp-tiles_1: 371202529
+      hp-tiles_2: -1936280579
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

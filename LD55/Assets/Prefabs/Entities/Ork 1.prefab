@@ -118,6 +118,8 @@ MonoBehaviour:
   idleMoveFrequency: 0.88
   chargeCooldown: 1.24
   targetOffset: {x: 0, y: -0.5, z: 0}
+  healthIndicatorPrefab: {fileID: 4396812461720210105, guid: a323b194701cf534eac252d94ed4b942, type: 3}
+  healthIndicator: {fileID: 0}
 --- !u!82 &978375131783022983
 AudioSource:
   m_ObjectHideFlags: 0
@@ -270,7 +272,7 @@ MonoBehaviour:
   - {x: 0.031123042, y: -0.005054474, z: 0}
   m_ShapePathHash: -1894356291
   m_Mesh: {fileID: 0}
-  m_InstanceId: 30538
+  m_InstanceId: 33850
   m_LocalBounds:
     m_Center: {x: 0.039473176, y: 0.065541685, z: 0}
     m_Extent: {x: 0.13809645, y: 0.07059616, z: 0}

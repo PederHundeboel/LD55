@@ -74,8 +74,20 @@ public class SpellCast : MonoBehaviour
     {
         foreach (OrkController ork in orks)
         {
-            HealthContainer health = ork.GetComponent<HealthContainer>();
-            health.Subtract(3);
+            ork.HitWithSpell(GetDamageValues());
         }
+    }
+    
+    private List<SpellResources.SpellType> GetDamageValues()
+    {
+        List<SpellResources.SpellType> damageValues = new List<SpellResources.SpellType>();
+        foreach (var value in values)
+        {
+            for (int i = 0; i < value.Value; i++)
+            {
+                damageValues.Add(value.Key);
+            }
+        }
+        return damageValues;
     }
 }

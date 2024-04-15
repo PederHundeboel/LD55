@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class OrkController : MonoBehaviour
 {
@@ -21,6 +24,27 @@ public class OrkController : MonoBehaviour
     private float idleMoveTimer = 0;
     private Vector3 lastPosition;
     private const float movementThreshold = 0.01f;
+    
+    public Action<List<SpellResources.SpellType>> OnHit;
+    
+    private List<SpellResources.SpellType> _healthBar;
+    
+    public OrkHealthIndicator healthIndicatorPrefab;
+    
+    public OrkHealthIndicator healthIndicator;
+
+    private void Awake()
+    {
+        _healthBar = new List<SpellResources.SpellType>();
+        for (int i = 0; i < 3; i++)
+        {
+            _healthBar.Add((SpellResources.SpellType)Random.Range(0, 3));
+        }
+        
+        healthIndicator = Instantiate(healthIndicatorPrefab, Vector3.zero, Quaternion.identity, transform);
+        healthIndicator.SetBar(_healthBar);
+        
+    }
 
     void FixedUpdate()
     {
@@ -34,6 +58,11 @@ public class OrkController : MonoBehaviour
         }
     }
 
+    public List<SpellResources.SpellType> GetHealthBar()
+    {
+        return _healthBar;
+    }
+    
     private void ProcessTargetInteraction()
     {
         adjustedTargetPosition = target.position + targetOffset;
@@ -116,6 +145,25 @@ public class OrkController : MonoBehaviour
     private void HandleAnimationDirection(float horizontalMovement)
     {
         transform.localScale = new Vector3(horizontalMovement > 0 ? 1 : -1, 1, 1);
+    }
+
+    public void HitWithSpell(List<SpellResources.SpellType> damage)
+    {
+        //iterate over the health bar. if it matches, set that element to none
+        for (int i = 0; i < damage.Count; i++)
+        {
+            if (_healthBar[i] == damage[i])
+            {
+                _healthBar[i] = SpellResources.SpellType.None;
+            }
+        }
+
+        OnHit?.Invoke(_healthBar);
+        
+        if (_healthBar.TrueForAll(x => x == SpellResources.SpellType.None))
+        {
+            Kill();
+        }
     }
     
     public void Kill()

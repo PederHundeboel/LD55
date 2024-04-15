@@ -2,19 +2,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ContainerBarSegment : MonoBehaviour
+public class OrkHealtBarSegment : MonoBehaviour
 {
     [SerializeField] public Sprite fullHealthSprite;
     [SerializeField] private Sprite emptyHealthSprite;
     [SerializeField] private Sprite decreaseSprite;
     [SerializeField] private float blinkDelay = 0.5f;
 
-    private Image healthUiImage;
+    private SpriteRenderer healthUiImage;
     private bool previousDisplayHealth = true;
 
     private void Awake()
     {
-        healthUiImage = GetComponent<Image>();
+        healthUiImage = GetComponent<SpriteRenderer>();
     }
 
     public void SetDisplayHealth(bool displayHealth)
@@ -44,5 +44,3 @@ public class ContainerBarSegment : MonoBehaviour
         healthUiImage.sprite = emptyHealthSprite;
     }
 }
-
-
