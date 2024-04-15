@@ -21,6 +21,8 @@ public class Orbs : Container
     
     public float soundDelay = 1.42f;
 
+    private bool orbsLocked = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -86,17 +88,14 @@ public class Orbs : Container
     
     public bool HasPassiveOrb()
     {
-        return _orbs.Any(o => !o.IsActive);
+        return _orbs.Any(o => !o.IsActive) && !orbsLocked;
     }
 
     public Dictionary<SpellResources.SpellType, int> ConsumeOrbs(Action onConsume = null, Action onCast = null)
     {
+        orbsLocked = true;
         var consumableOrbs = _orbs.Where(o => o.IsActive).ToList();
         Dictionary<SpellResources.SpellType, int> consumedValues = new();
-        if (consumableOrbs.Count < 3)
-        {
-            return consumedValues;
-        }
         foreach (var orb in consumableOrbs)
         {
             if (orb.IsActive)
@@ -112,7 +111,11 @@ public class Orbs : Container
             }
         }
         onConsume?.Invoke();
-        ShakeOrbs(consumableOrbs, onCast);
+        ShakeOrbs(consumableOrbs, () =>
+        {
+            onCast?.Invoke();
+            orbsLocked = false;
+        });
 
         return consumedValues;
     }

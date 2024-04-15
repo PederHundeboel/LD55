@@ -12,7 +12,7 @@ public class SpellCast : MonoBehaviour
     public Light2D _light2D;
     private static readonly int CastSpell = Animator.StringToHash("CastSpell");
 
-    public Vector2 boxSize = new Vector2(0.5f, 0.5f);
+    public Vector2 boxSize = new Vector2(0.6f, 0.6f);
     public Vector2 boxOffset = Vector2.zero;
     private float windUpTime = 1.42f;
 
