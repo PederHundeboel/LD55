@@ -49,28 +49,28 @@ public class OrkBoss : MonoBehaviour
         peon.GetComponent<OrkController>().SetTarget(_player.transform);
     }
 
-    public void HitWithSpell(Dictionary<SpellResources.SpellType, int> dictionary)
+    public void HitWithSpell(List<SpellResources.SpellType> dictionary)
     {
         //this is untested for now (note for mr unbreakable)
-        int count = Math.Min(3, _healthBar.Count);
-        for (int i = 0; i < count; i++)
-        {
-            if (dictionary.ContainsKey(_healthBar[i]))
-            {
-                dictionary[_healthBar[i]]--;
-                if (dictionary[_healthBar[i]] == 0)
-                {
-                    dictionary.Remove(_healthBar[i]);
-                }
-                _healthBar.RemoveAt(i);
-                i--;
-                count--; 
-            }
-            else
-            {
-                _healthBar.Add((SpellResources.SpellType)Random.Range(0, 3));
-            }
-        }
+        // int count = Math.Min(3, _healthBar.Count);
+        // for (int i = 0; i < count; i++)
+        // {
+        //     if (dictionary.ContainsKey(_healthBar[i]))
+        //     {
+        //         dictionary[_healthBar[i]]--;
+        //         if (dictionary[_healthBar[i]] == 0)
+        //         {
+        //             dictionary.Remove(_healthBar[i]);
+        //         }
+        //         _healthBar.RemoveAt(i);
+        //         i--;
+        //         count--; 
+        //     }
+        //     else
+        //     {
+        //         _healthBar.Add((SpellResources.SpellType)Random.Range(0, 3));
+        //     }
+        // }
         //for debug purposes, log the health bar to the console
         foreach (var spellType in _healthBar)
         {

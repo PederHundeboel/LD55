@@ -16,7 +16,7 @@ public class SpellCast : MonoBehaviour
     public Vector2 boxOffset = Vector2.zero;
     private float windUpTime = 1.42f;
 
-    private Dictionary<SpellResources.SpellType, int> values;
+    private List<SpellResources.SpellType> values;
     public void Start()
     {
         _animator.SetTrigger(CastSpell);
@@ -38,9 +38,11 @@ public class SpellCast : MonoBehaviour
         }
     }
     
-    public void SetDamageCombination(Dictionary<SpellResources.SpellType, int> damageValues)
+    public void SetDamageCombination(List<SpellResources.SpellType> damageValues)
     {
-        values = damageValues;
+        values = new List<SpellResources.SpellType>();
+        values.AddRange(damageValues);
+        values.Reverse();
     }
     
     private void CheckCollisions()
@@ -74,20 +76,8 @@ public class SpellCast : MonoBehaviour
     {
         foreach (OrkController ork in orks)
         {
-            ork.HitWithSpell(GetDamageValues());
+            ork.HitWithSpell(values);
         }
     }
     
-    private List<SpellResources.SpellType> GetDamageValues()
-    {
-        List<SpellResources.SpellType> damageValues = new List<SpellResources.SpellType>();
-        foreach (var value in values)
-        {
-            for (int i = 0; i < value.Value; i++)
-            {
-                damageValues.Add(value.Key);
-            }
-        }
-        return damageValues;
-    }
 }

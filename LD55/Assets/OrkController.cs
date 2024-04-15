@@ -149,15 +149,37 @@ public class OrkController : MonoBehaviour
 
     public void HitWithSpell(List<SpellResources.SpellType> damage)
     {
-        //iterate over the health bar. if it matches, set that element to none
-        for (int i = 0; i < damage.Count; i++)
+        _healthBar.Sort((x, y) => x == SpellResources.SpellType.None ? 1 : 0);
+        // for (int i = 0; i < _healthBar.Count; i++)
+        // {
+        //     if (_healthBar[i] == SpellResources.SpellType.None)
+        //     {
+        //         continue;
+        //     }
+        //     if (damage.Count > 0 && _healthBar[i] == damage[0])
+        //     {
+        //         _healthBar[i] = SpellResources.SpellType.None;
+        //         damage.RemoveAt(0);
+        //     }
+        //     else
+        //     {
+        //         // i = 999;
+        //     }
+        // }
+
+        for (int i = 0; i < _healthBar.Count; i++)
         {
-            if (_healthBar[i] == damage[i])
+            if (_healthBar[i] != SpellResources.SpellType.None)
             {
-                _healthBar[i] = SpellResources.SpellType.None;
+                int damageIndex = damage.IndexOf(_healthBar[i]);
+                if (damageIndex != -1)
+                {
+                    _healthBar[i] = SpellResources.SpellType.None;
+                    damage.RemoveAt(damageIndex);
+                }
             }
         }
-
+        
         OnHit?.Invoke(_healthBar);
         
         if (_healthBar.TrueForAll(x => x == SpellResources.SpellType.None))

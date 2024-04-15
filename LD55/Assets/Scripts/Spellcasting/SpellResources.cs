@@ -20,6 +20,13 @@ public class SpellResources : MonoBehaviour
     
     public SpellCast SpellCast;
 
+    private List<SpellType> _enhancedSpells;
+
+    private void Awake()
+    {
+        _enhancedSpells = new List<SpellType>();
+    }
+
     public void CastSpell()
     {
         var consumed = Orbs.ConsumeOrbs(() =>
@@ -32,7 +39,8 @@ public class SpellResources : MonoBehaviour
             var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
             var cast = Instantiate(SpellCast, mousePos, Quaternion.identity);
-            cast.SetDamageCombination(consumed);
+            cast.SetDamageCombination(_enhancedSpells);
+            _enhancedSpells.Clear();
 
         }
         
@@ -48,12 +56,15 @@ public class SpellResources : MonoBehaviour
             {
                 case SpellType.Utility:
                     Utility.Add(1);
+                    _enhancedSpells.Add(SpellType.Utility);
                     break;
                 case SpellType.Offensive:
                     Offensive.Add(1);
+                    _enhancedSpells.Add(SpellType.Offensive);
                     break;
                 case SpellType.Defensive:
                     Defensive.Add(1);
+                    _enhancedSpells.Add(SpellType.Defensive);
                     break;
             }
             
