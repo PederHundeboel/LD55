@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class OrkBoss : MonoBehaviour
@@ -12,6 +13,8 @@ public class OrkBoss : MonoBehaviour
     private GameObject _player;
     private bool _isSummoning = false;
 
+    [SerializeField] protected UnityEvent onDied = new UnityEvent();
+    
     List<BossShield> _shields = new List<BossShield>();
 
     public List<Transform> _shieldPositions;
@@ -82,7 +85,8 @@ public class OrkBoss : MonoBehaviour
 
         if (health.GetValue() == 0)
         {
-            Destroy(gameObject);
+            onDied.Invoke();
+            Destroy(gameObject, 0.2f);
         }
     }
 
